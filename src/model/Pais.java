@@ -2,7 +2,7 @@ package model;
 
 import java.util.*;
 
-public class Pais {
+public class Pais implements Comparable {
 
     // ATRIBUTOS PAIS
     private static final int[] PUNTOS = {1,2,3,4,5,6,7,8,9,10,12};
@@ -37,12 +37,27 @@ public class Pais {
 
     // MÉTODO PARA OBTENER LA PUNTUACIÓN RECIBIDA
     public int obtenerPuntuacion () {
+        int suma = 0;
 
+        for (Integer punto : puntuacionRecibida.values()) {
+            suma += punto;
+        }
+
+        return suma;
     }
 
     // MÉTODO PARA EMITIR UN VOTO
     public Map<Integer,Pais> emitirVoto () { return puntuacionEmitida; }
 
+    // MÉTODO COMPARABLE
+    @Override
+    public int compareTo (Pais o) {
+        return nombre.compareToIgnoreCase(o.nombre);
+    }
 
-
+    // TO STRING
+    @Override
+    public String toString () {
+        return
+    }
 }
